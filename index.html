@@ -1,0 +1,263 @@
+<!--
+  ============================================================
+  MAEDA COSMETICS トップページ
+  ============================================================
+  ■ 目的：VV CREAM販売会社のコーポレートサイト トップ
+  ■ 参考：資生堂ホームページ（画像多用・余白大・高級感）
+  ■ 構成：ヒーロー → ブランド → 商品 → ギャラリー → ニュース → CTA → SNS
+  ■ 技術：HTML5 + CSS3 + Swiper.js（カルーセル）
+  ■ 編集：.cursorrules に詳細な編集ガイドあり
+
+  【編集が必要な箇所】
+  - ECサイトURL：CTAセクションの href="#" を実際のURLに
+  - Instagram URL：SNSセクションの href="#" を実際のURLに
+  - 公式LINE URL：SNSセクションの href="#" を実際のURLに
+  - 商品追加：products-grid 内に product-card を複製して追加可能
+  - ニュース追加：news-list 内に news-item を追加
+  ============================================================
+-->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAEDA COSMETICS | VV CREAM</title>
+  <meta name="description" content="こだわり抜いたVV CREAMで、あなたの美しさを引き出す。MAEDA COSMETICS 公式サイト。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header id="header">
+    <div class="header-wrap">
+      <a href="index.html" class="header-logo" aria-label="MAEDA COSMETICS トップへ">
+        <span class="logo-text">MAEDA COSMETICS</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く" aria-expanded="false">
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- フルスクリーンナビ -->
+  <nav class="fullscreen-nav" id="fullscreenNav" aria-hidden="true">
+    <ul class="nav-list">
+      <li><a href="index.html" class="nav-link">HOME</a></li>
+      <li><a href="about.html" class="nav-link">ABOUT</a></li>
+      <li><a href="products.html" class="nav-link">PRODUCTS</a></li>
+      <li><a href="contact.html" class="nav-link">CONTACT</a></li>
+    </ul>
+  </nav>
+
+  <!-- ヒーロー (Swiper カルーセル) -->
+  <section class="hero">
+    <div class="swiper hero-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="hero-slide">
+            <img src="assets/images/LINE_ALBUM_20260314_260411_8.jpg" alt="EVENE VV CREAM — ラグジュアリーな暖色ライティング" class="hero-img" loading="eager" />
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+              <p class="hero-sub-en">Beauty in Every Detail</p>
+              <h1 class="hero-title">あなたの肌に、<br />自信を。</h1>
+              <a href="products.html" class="btn btn-outline-white">PRODUCTS →</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="hero-slide">
+            <img src="assets/images/LINE_ALBUM_20260314_260411_103.jpg" alt="EVENE VV CREAM — ダークトーン×ゴールド" class="hero-img" loading="lazy" />
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+              <p class="hero-sub-en">Natural Coverage, Lasting Confidence</p>
+              <h1 class="hero-title">自然な仕上がりで、<br />一日中美しく。</h1>
+              <a href="products.html" class="btn btn-outline-white">VIEW MORE →</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="hero-slide">
+            <img src="assets/images/LINE_ALBUM_20260314_260411_215.jpg" alt="EVENE VV CREAM — 和の高級感" class="hero-img" loading="lazy" />
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+              <p class="hero-sub-en">Crafted with Care</p>
+              <h1 class="hero-title">こだわり抜いた<br />一本を。</h1>
+              <a href="about.html" class="btn btn-outline-white">OUR STORY →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-pagination">
+        <span class="hero-current">1</span>
+        <span class="hero-sep">/</span>
+        <span class="hero-total">3</span>
+      </div>
+      <div class="hero-progress"><div class="hero-progress-bar"></div></div>
+      <div class="swiper-button-prev hero-prev"></div>
+      <div class="swiper-button-next hero-next"></div>
+    </div>
+  </section>
+
+  <!-- ブランドメッセージ -->
+  <section class="section section-brand">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title-en">BRAND</h2>
+        <p class="section-title-ja">ブランドについて</p>
+      </div>
+      <div class="brand-content reveal">
+        <div class="brand-image">
+          <img src="assets/images/LINE_ALBUM_20260314_260411_66.jpg" alt="ナチュラル素材と商品" loading="lazy" />
+        </div>
+        <div class="brand-text">
+          <h3 class="brand-heading">美しさの本質を追求する</h3>
+          <p class="brand-desc">
+            私たちは、すべての人が自分自身の肌に自信を持てるよう、<br />
+            品質と使い心地にこだわり抜いたVV CREAMをお届けしています。<br />
+            一つひとつの商品に想いを込めて。
+          </p>
+          <a href="about.html" class="btn btn-outline">ABOUT US →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 商品紹介 -->
+  <section class="section section-products section-muted">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title-en">PRODUCTS</h2>
+        <p class="section-title-ja">商品紹介</p>
+      </div>
+      <div class="products-grid reveal">
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="assets/images/LINE_ALBUM_20260314_260411_111.jpg" alt="EVENE VV CREAM 商品写真" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">VV CREAM</h3>
+            <p class="product-desc">ナチュラルカバレッジ VV CREAM</p>
+            <a href="products.html" class="btn btn-outline btn-sm">詳しく見る →</a>
+          </div>
+        </div>
+      </div>
+      <div class="products-cta">
+        <a href="products.html" class="btn btn-outline">VIEW ALL PRODUCTS →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ギャラリー (水平スクロール) -->
+  <section class="section section-gallery">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title-en">GALLERY</h2>
+        <p class="section-title-ja">ギャラリー</p>
+      </div>
+    </div>
+    <div class="swiper gallery-swiper reveal">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide gallery-slide">
+          <img src="assets/images/LINE_ALBUM_20260314_260411_14.jpg" alt="花背景×パッケージ" loading="lazy" />
+        </div>
+        <div class="swiper-slide gallery-slide">
+          <img src="assets/images/LINE_ALBUM_20260314_260411_40.jpg" alt="グリーン背景×商品セット" loading="lazy" />
+        </div>
+        <div class="swiper-slide gallery-slide">
+          <img src="assets/images/LINE_ALBUM_20260314_260411_173.jpg" alt="ゴールドロゴ クローズアップ" loading="lazy" />
+        </div>
+        <div class="swiper-slide gallery-slide">
+          <img src="assets/images/LINE_ALBUM_20260314_260411_56.jpg" alt="窓辺のパッケージ" loading="lazy" />
+        </div>
+        <div class="swiper-slide gallery-slide">
+          <img src="assets/images/LINE_ALBUM_20260314_260411_200.jpg" alt="植物背景×商品" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- お知らせ -->
+  <section class="section section-news section-muted">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title-en">NEWS</h2>
+        <p class="section-title-ja">お知らせ</p>
+      </div>
+      <ul class="news-list reveal">
+        <li class="news-item">
+          <time class="news-date" datetime="2026-04-11">2026.04.11</time>
+          <span class="news-tag">INFO</span>
+          <a href="#" class="news-title">公式ホームページをオープンしました</a>
+        </li>
+        <li class="news-item">
+          <time class="news-date" datetime="2026-04-19">2026.04.19</time>
+          <span class="news-tag">EVENT</span>
+          <a href="#" class="news-title">モデル撮影を実施予定</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section-cta">
+    <div class="container">
+      <div class="cta-inner reveal">
+        <p class="cta-en">Online Store</p>
+        <h2 class="cta-title">オンラインストアはこちら</h2>
+        <p class="cta-desc">商品のご購入はECサイトにて承っております。</p>
+        <a href="https://eveoneonline.com/" class="btn btn-filled" target="_blank" rel="noopener noreferrer">ECサイトへ →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SNS -->
+  <section class="section section-sns">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title-en">FOLLOW US</h2>
+        <p class="section-title-ja">公式SNS</p>
+      </div>
+      <div class="sns-links reveal">
+        <a href="https://www.instagram.com/eveone_official/" class="sns-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          <span>@EVEONE_OFFICIAL</span>
+        </a>
+        <a href="#" class="sns-link" target="_blank" rel="noopener noreferrer" aria-label="LINE">
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 5.82 2 10.5c0 3.31 2.62 6.18 6.5 7.35-.09.82-.5 3.05-.53 3.23 0 0-.01.08.04.11.05.03.11.01.11.01.15-.02 1.76-1.16 2.5-1.7.89.14 1.84.21 2.83.21 5.52 0 10-3.82 10-8.5S17.52 2 12 2z"/></svg>
+          <span>LINE</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">MAEDA COSMETICS</span>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="products.html">PRODUCTS</a>
+        <a href="contact.html">CONTACT</a>
+      </nav>
+      <div class="footer-legal">
+        <a href="#">利用規約</a>
+        <a href="#">プライバシーポリシー</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 MAEDA COSMETICS. All rights reserved.</p>
+    </div>
+    <button class="page-top" id="pageTop" aria-label="ページトップへ">↑</button>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

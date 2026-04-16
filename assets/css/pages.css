@@ -1,0 +1,399 @@
+/* ===================================================
+   MAEDA COSMETICS — Subpage Styles
+   =================================================== */
+
+/* --- Page Hero --- */
+.page-hero {
+  background: var(--color-text);
+  color: #fff;
+  padding: 160px 0 80px;
+  text-align: center;
+}
+
+.page-hero-title {
+  font-family: var(--font-en);
+  font-size: 4.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.page-hero-sub {
+  font-size: 1.3rem;
+  font-weight: 300;
+  opacity: 0.7;
+  letter-spacing: 0.06em;
+}
+
+/* --- About: Philosophy --- */
+.about-philosophy {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.about-philosophy-image {
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.about-philosophy-image img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.about-philosophy-image:hover img {
+  transform: scale(1.03);
+}
+
+.about-heading {
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.about-desc {
+  font-size: 1.4rem;
+  line-height: 2.0;
+  color: var(--color-text-light);
+  margin-bottom: 16px;
+}
+
+.about-sign {
+  font-family: var(--font-en);
+  font-size: 2.0rem;
+  font-weight: 500;
+  margin-top: 32px;
+  letter-spacing: 0.04em;
+}
+
+/* --- About: Message --- */
+.about-message {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.about-message-image {
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.about-message-image img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+}
+
+/* --- Company Table --- */
+.company-table {
+  width: 100%;
+  max-width: 700px;
+  border-collapse: collapse;
+}
+
+.company-table tr {
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.company-table th,
+.company-table td {
+  padding: 20px 16px;
+  font-size: 1.4rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.company-table th {
+  font-weight: 500;
+  width: 160px;
+  color: var(--color-text-light);
+}
+
+.company-table td a {
+  color: var(--color-accent);
+}
+
+@media (hover: hover) {
+  .company-table td a:hover {
+    text-decoration: underline;
+  }
+}
+
+/* --- Products: Detail --- */
+.product-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.product-main-image {
+  overflow: hidden;
+  border-radius: 2px;
+  margin-bottom: 16px;
+}
+
+.product-main-image img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  transition: opacity 0.3s;
+}
+
+.product-thumbnails {
+  display: flex;
+  gap: 12px;
+}
+
+.product-thumb {
+  width: 72px;
+  height: 72px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  border-radius: 2px;
+  cursor: pointer;
+  padding: 0;
+  background: none;
+  transition: border-color 0.3s;
+}
+
+.product-thumb.active {
+  border-color: var(--color-text);
+}
+
+.product-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-category {
+  font-family: var(--font-en);
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.product-detail-name {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  line-height: 1.4;
+}
+
+.product-detail-desc {
+  font-size: 1.4rem;
+  line-height: 2.0;
+  color: var(--color-text-light);
+  margin-bottom: 32px;
+}
+
+.product-features {
+  border-top: 1px solid var(--color-border-light);
+  margin-bottom: 40px;
+}
+
+.feature-item {
+  display: flex;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.feature-label {
+  font-size: 1.3rem;
+  font-weight: 500;
+  width: 120px;
+  flex-shrink: 0;
+}
+
+.feature-value {
+  font-size: 1.3rem;
+  color: var(--color-text-light);
+}
+
+/* --- How To Use --- */
+.howto-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.howto-step {
+  text-align: center;
+}
+
+.howto-number {
+  font-family: var(--font-en);
+  font-size: 3.6rem;
+  font-weight: 300;
+  color: var(--color-accent);
+  letter-spacing: 0.04em;
+  margin-bottom: 16px;
+}
+
+.howto-img-wrap {
+  overflow: hidden;
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+
+.howto-img-wrap img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.howto-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.howto-desc {
+  font-size: 1.3rem;
+  color: var(--color-text-light);
+  line-height: 1.8;
+}
+
+/* --- Contact --- */
+.contact-intro {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.contact-lead {
+  font-size: 1.5rem;
+  line-height: 2.0;
+  color: var(--color-text-light);
+}
+
+.contact-methods {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.contact-card {
+  background: var(--color-bg-muted);
+  border-radius: 4px;
+  padding: 48px 40px;
+}
+
+.contact-card-header {
+  margin-bottom: 32px;
+}
+
+.form-placeholder {
+  background: #fff;
+  border: 2px dashed var(--color-border-light);
+  border-radius: 4px;
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.form-placeholder p {
+  font-size: 1.4rem;
+  color: var(--color-text-light);
+  margin-bottom: 8px;
+}
+
+.form-placeholder-note {
+  font-size: 1.2rem;
+  opacity: 0.6;
+}
+
+.contact-line {
+  text-align: center;
+}
+
+.contact-line-desc {
+  font-size: 1.4rem;
+  line-height: 2.0;
+  color: var(--color-text-light);
+  margin-bottom: 32px;
+}
+
+.btn-line {
+  background: #06C755;
+  border-color: #06C755;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 1.3rem;
+  min-width: auto;
+  transition: opacity 0.3s;
+}
+
+.btn-line:hover {
+  opacity: 0.85;
+  color: #fff;
+}
+
+/* --- Responsive --- */
+
+/* Tablet (601px〜1024px) */
+@media (max-width: 1024px) {
+  .page-hero { padding: 140px 0 72px; }
+  .page-hero-title { font-size: 4.0rem; }
+
+  .about-philosophy { gap: 48px; }
+  .about-message { gap: 40px; }
+
+  .product-detail { gap: 48px; }
+
+  .howto-steps { gap: 32px; }
+
+  .contact-methods { gap: 40px; }
+  .contact-card { padding: 40px 32px; }
+
+  .company-table th { width: 140px; }
+}
+
+/* Tablet Portrait / 大きめスマホ (601px〜768px) */
+@media (max-width: 768px) {
+  .about-philosophy { grid-template-columns: 1fr; gap: 40px; }
+  .about-message { grid-template-columns: 1fr; gap: 32px; }
+
+  .product-detail { grid-template-columns: 1fr; gap: 40px; }
+
+  .howto-steps { grid-template-columns: 1fr; gap: 40px; }
+
+  .contact-methods { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* Mobile (600px以下) */
+@media (max-width: 600px) {
+  .page-hero { padding: 110px 0 52px; }
+  .page-hero-title { font-size: 3.0rem; }
+
+  .about-heading { font-size: 1.8rem; }
+
+  .product-detail-name { font-size: 2.0rem; }
+  .product-thumbnails { gap: 8px; }
+  .product-thumb { width: 60px; height: 60px; }
+  .feature-label { width: 100px; }
+
+  .howto-steps { gap: 40px; }
+  .howto-number { font-size: 3.0rem; }
+  .howto-title { font-size: 1.4rem; }
+
+  .contact-card { padding: 28px 20px; }
+  .form-placeholder { padding: 48px 20px; }
+
+  .company-table th { width: 100px; }
+  .company-table th,
+  .company-table td { padding: 16px 12px; font-size: 1.3rem; }
+}
