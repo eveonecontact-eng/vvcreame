@@ -100,27 +100,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // --- Hero Swiper (Fade Carousel) ---
-  const heroSwiper = new Swiper('.hero-swiper', {
-    effect: 'fade',
-    fadeEffect: { crossFade: true },
-    autoplay: { delay: 5000, disableOnInteraction: false },
-    loop: true,
-    speed: 1200,
-    navigation: {
-      nextEl: '.hero-next',
-      prevEl: '.hero-prev',
-    },
-    on: {
-      init: function () {
-        updatePagination(this);
-        startProgress(this);
-      },
-      slideChange: function () {
-        updatePagination(this);
-        startProgress(this);
-      },
-    },
-  });
+  const hasSwiper = typeof window.Swiper !== 'undefined';
+  const heroSwiperEl = document.querySelector('.hero-swiper');
 
   function updatePagination(swiper) {
     const current = document.querySelector('.hero-current');
@@ -142,13 +123,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  if (hasSwiper && heroSwiperEl) {
+    new Swiper('.hero-swiper', {
+      effect: 'fade',
+      fadeEffect: { crossFade: true },
+      autoplay: { delay: 5000, disableOnInteraction: false },
+      loop: true,
+      speed: 1200,
+      navigation: {
+        nextEl: '.hero-next',
+        prevEl: '.hero-prev',
+      },
+      on: {
+        init: function () {
+          updatePagination(this);
+          startProgress(this);
+        },
+        slideChange: function () {
+          updatePagination(this);
+          startProgress(this);
+        },
+      },
+    });
+  }
+
   // --- Gallery Swiper (Horizontal Scroll) ---
-  new Swiper('.gallery-swiper', {
-    slidesPerView: 'auto',
-    spaceBetween: 16,
-    freeMode: true,
-    grabCursor: true,
-  });
+  const gallerySwiperEl = document.querySelector('.gallery-swiper');
+  if (hasSwiper && gallerySwiperEl) {
+    new Swiper('.gallery-swiper', {
+      slidesPerView: 'auto',
+      spaceBetween: 16,
+      freeMode: true,
+      grabCursor: true,
+    });
+  }
 
   // --- Header Scroll Effect ---
   const header = document.getElementById('header');
@@ -173,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.getElementById('menuToggle');
   const nav = document.getElementById('fullscreenNav');
 
-  menuToggle.addEventListener('click', () => {
+  if (menuToggle && nav) menuToggle.addEventListener('click', () => {
     const isOpen = nav.classList.contains('open');
     nav.classList.toggle('open');
     menuToggle.classList.toggle('active');
@@ -183,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Close nav on link click
-  nav.querySelectorAll('.nav-link').forEach(link => {
+  if (nav) nav.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
       nav.classList.remove('open');
       menuToggle.classList.remove('active');
@@ -195,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Close on Escape
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && nav.classList.contains('open')) {
+    if (nav && e.key === 'Escape' && nav.classList.contains('open')) {
       nav.classList.remove('open');
       menuToggle.classList.remove('active');
       menuToggle.setAttribute('aria-expanded', 'false');
@@ -206,16 +214,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Scroll Reveal (IntersectionObserver) ---
   const reveals = document.querySelectorAll('.reveal');
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
+  // Fallback: IntersectionObserver 未対応環境では常に表示する
+  if (!('IntersectionObserver' in window)) {
+    reveals.forEach(el => el.classList.add('visible'));
+  } else {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
 
-  reveals.forEach(el => revealObserver.observe(el));
+    reveals.forEach(el => revealObserver.observe(el));
+  }
 
   // --- Page Top Button ---
   const pageTop = document.getElementById('pageTop');

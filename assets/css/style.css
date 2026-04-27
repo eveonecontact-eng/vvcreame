@@ -385,6 +385,10 @@ ul { list-style: none; }
 }
 
 /* ===== BRAND ===== */
+.section-brand {
+  background: var(--color-bg-muted);
+}
+
 .brand-content {
   display: grid;
   grid-template-columns: 1fr 1fr;

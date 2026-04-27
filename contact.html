@@ -4,9 +4,8 @@
   ============================================================
   ■ 目的：Googleフォーム＋公式LINEでお問い合わせを受け付ける
   ■ 編集：
-    - Googleフォーム：コメントアウトされたiframeのsrcにフォームURLを入れ、
-      form-placeholderのdivを削除してiframeのコメントを外す
-    - 公式LINE：btn-lineの href="#" を実際のLINE URLに差し替え
+    - Googleフォーム：iframe の src（embedded=true）と「別タブで開く」リンクを実URLに差し替え
+    - 公式LINE：btn-line の href を実際のLINE URLに差し替え
   ============================================================
 -->
 <!DOCTYPE html>
@@ -73,14 +72,8 @@
             <p class="section-title-ja">お問い合わせフォーム</p>
           </div>
           <div class="contact-form-wrap">
-            <!-- Googleフォーム埋め込みエリア -->
-            <div class="form-placeholder">
-              <p>Googleフォームがここに埋め込まれます</p>
-              <p class="form-placeholder-note">※ 実際のGoogleフォームURLを取得後、iframeを設置します</p>
-            </div>
-            <!--
             <iframe
-              src="YOUR_GOOGLE_FORM_URL"
+              src="https://docs.google.com/forms/d/e/1FAIpQLSc-tfaMqIzRJLtHwHNV_0YUF_Xp4uGJbva8pQR5ABZL3Kg5JQ/viewform?embedded=true"
               width="100%"
               height="800"
               frameborder="0"
@@ -88,7 +81,14 @@
               marginwidth="0"
               title="お問い合わせフォーム"
             >読み込んでいます…</iframe>
-            -->
+            <div style="margin-top: 12px;">
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSc-tfaMqIzRJLtHwHNV_0YUF_Xp4uGJbva8pQR5ABZL3Kg5JQ/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-outline btn-sm"
+              >フォームを別タブで開く →</a>
+            </div>
           </div>
         </div>
 
@@ -103,7 +103,7 @@
               お気軽にメッセージをお送りください。<br />
               商品に関するご相談も受け付けております。
             </p>
-            <a href="#" class="btn btn-line" target="_blank" rel="noopener noreferrer">
+            <a href="https://lin.ee/yaQwguZ" class="btn btn-line" target="_blank" rel="noopener noreferrer">
               <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 5.82 2 10.5c0 3.31 2.62 6.18 6.5 7.35-.09.82-.5 3.05-.53 3.23 0 0-.01.08.04.11.05.03.11.01.11.01.15-.02 1.76-1.16 2.5-1.7.89.14 1.84.21 2.83.21 5.52 0 10-3.82 10-8.5S17.52 2 12 2z"/></svg>
               LINEで問い合わせる
             </a>

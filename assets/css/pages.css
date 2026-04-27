@@ -59,7 +59,8 @@
 .about-desc {
   font-size: 1.4rem;
   line-height: 2.0;
-  color: var(--color-text-light);
+  /* 背景が白でも十分読めるよう濃い文字色に */
+  color: var(--color-text);
   margin-bottom: 16px;
 }
 
