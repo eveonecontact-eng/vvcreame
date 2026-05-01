@@ -91,6 +91,39 @@
   object-fit: cover;
 }
 
+/* --- About: Story --- */
+.about-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--color-border-light);
+  margin: 8px 0 72px;
+}
+
+.about-story {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.about-story-image {
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.about-story-image img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+}
+
+.about-story-text .about-desc {
+  font-size: 1.45rem;
+  line-height: 2.1;
+  margin-bottom: 20px;
+  color: var(--color-text);
+}
+
 /* --- Company Table --- */
 .company-table {
   width: 100%;
@@ -367,6 +400,7 @@
 @media (max-width: 768px) {
   .about-philosophy { grid-template-columns: 1fr; gap: 40px; }
   .about-message { grid-template-columns: 1fr; gap: 32px; }
+  .about-story { grid-template-columns: 1fr; gap: 32px; }
 
   .product-detail { grid-template-columns: 1fr; gap: 40px; }
 
