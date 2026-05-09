@@ -181,34 +181,45 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.getElementById('menuToggle');
   const nav = document.getElementById('fullscreenNav');
 
+  const navCloseButton = nav ? nav.querySelector('.nav-close') : null;
+
+  function openNav() {
+    if (!nav || !menuToggle) return;
+    nav.classList.add('open');
+    menuToggle.classList.add('active');
+    menuToggle.setAttribute('aria-expanded', 'true');
+    nav.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeNav() {
+    if (!nav || !menuToggle) return;
+    nav.classList.remove('open');
+    menuToggle.classList.remove('active');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    nav.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
   if (menuToggle && nav) menuToggle.addEventListener('click', () => {
     const isOpen = nav.classList.contains('open');
-    nav.classList.toggle('open');
-    menuToggle.classList.toggle('active');
-    menuToggle.setAttribute('aria-expanded', !isOpen);
-    nav.setAttribute('aria-hidden', isOpen);
-    document.body.style.overflow = isOpen ? '' : 'hidden';
+    if (isOpen) closeNav();
+    else openNav();
   });
+
+  if (navCloseButton) navCloseButton.addEventListener('click', closeNav);
 
   // Close nav on link click
   if (nav) nav.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
-      nav.classList.remove('open');
-      menuToggle.classList.remove('active');
-      menuToggle.setAttribute('aria-expanded', 'false');
-      nav.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
+      closeNav();
     });
   });
 
   // Close on Escape
   document.addEventListener('keydown', (e) => {
     if (nav && e.key === 'Escape' && nav.classList.contains('open')) {
-      nav.classList.remove('open');
-      menuToggle.classList.remove('active');
-      menuToggle.setAttribute('aria-expanded', 'false');
-      nav.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
+      closeNav();
     }
   });
 
