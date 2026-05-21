@@ -297,6 +297,25 @@
   line-height: 1.8;
 }
 
+/* --- Business page typography --- */
+html.page-business {
+  --business-text-scale: 1.15;
+  font-size: calc(62.5% * var(--business-text-scale));
+}
+
+html.page-business .business-section-title {
+  font-size: 4.8rem;
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: 0.1em;
+}
+
+html.page-business .business-section-sub {
+  font-size: 1.8rem;
+  margin-top: 12px;
+  color: var(--color-text-light);
+}
+
 /* --- Business --- */
 .business-section-title {
   font-size: 2.8rem;
@@ -351,6 +370,16 @@
   color: var(--color-text-light);
 }
 
+html.page-business .business-card {
+  padding-top: calc(44px + 2.8em);
+}
+
+html.page-business .business-card-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
 .business-headings {
   max-width: 720px;
   margin: 44px auto 0;
@@ -366,6 +395,10 @@
 
 .business-heading + .business-heading {
   margin-top: 32px;
+}
+
+html.page-business .business-heading-desc + .business-heading:not(.company-profile-section) {
+  margin-top: 2.8em;
 }
 
 .business-headings .company-profile-section {
@@ -445,6 +478,7 @@
     transform: translateY(-2px);
     border-color: rgba(69,67,62,0.35);
   }
+
 }
 
 /* --- Contact --- */
@@ -533,6 +567,9 @@
   .page-hero { padding: 140px 0 72px; }
   .page-hero-title { font-size: 4.0rem; }
 
+  html.page-business .business-section-title { font-size: 4.0rem; }
+  html.page-business .business-card-title { font-size: 2.0rem; }
+
   .about-philosophy { gap: 48px; }
   .about-message { gap: 40px; }
 
@@ -597,6 +634,11 @@
 
   .business-section-title { font-size: 2.2rem; }
   .business-section-sub { font-size: 1.3rem; }
+
+  html.page-business .business-section-title { font-size: 3.0rem; }
+  html.page-business .business-section-sub { font-size: 1.5rem; }
+  html.page-business .business-card { padding-top: calc(32px + 2.4em); }
+  html.page-business .business-card-title { font-size: 1.9rem; }
 
   .contact-card { padding: 28px 20px; }
   .form-placeholder { padding: 48px 20px; }

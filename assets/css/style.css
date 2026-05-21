@@ -45,6 +45,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* トップページ：本文テキストを同比率で拡大（ボタンは除外） */
+html.page-home {
+  --home-text-scale: 1.2;
+  font-size: calc(62.5% * var(--home-text-scale));
+}
+
+html.page-home .btn {
+  font-size: calc(1.3rem / var(--home-text-scale));
+}
+
+html.page-home .btn.btn-sm {
+  font-size: calc(1.2rem / var(--home-text-scale));
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -309,7 +323,111 @@ ul { list-style: none; }
   opacity: 1;
 }
 
-/* ===== HERO ===== */
+/* ===== TOP FLOW (SoftBank-style) ===== */
+.top-flow {
+  padding-top: calc(var(--header-height) + 24px);
+  padding-bottom: 24px;
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+.top-flow-marquee {
+  width: 100%;
+  overflow: hidden;
+  padding: 32px 0 40px;
+}
+
+.top-flow-track {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: max-content;
+  animation: top-flow-scroll 20s linear infinite;
+  will-change: transform;
+}
+
+.top-flow-marquee.is-paused .top-flow-track {
+  animation-play-state: paused;
+}
+
+@keyframes top-flow-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.top-flow-slide {
+  flex: 0 0 auto;
+  width: min(300px, 72vw);
+  height: min(440px, 58vh);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+
+.top-flow-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.top-flow-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .top-flow-track {
+    animation: none;
+  }
+}
+
+.top-flow-pause {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border-light);
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  flex-shrink: 0;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.top-flow-pause:hover {
+  border-color: var(--color-text);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.top-flow-pause-icon {
+  display: block;
+  width: 10px;
+  height: 12px;
+  border-left: 3px solid var(--color-text);
+  border-right: 3px solid var(--color-text);
+}
+
+.top-flow-pause.is-paused .top-flow-pause-icon {
+  width: 0;
+  height: 0;
+  border: none;
+  border-left: 10px solid var(--color-text);
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  margin-left: 3px;
+}
+
+/* ===== HERO (legacy) ===== */
 .hero {
   width: 100%;
   height: 100vh;
@@ -766,6 +884,11 @@ ul { list-style: none; }
 
   .section-title-en { font-size: 3.0rem; }
 
+  .top-flow-slide {
+    width: min(280px, 78vw);
+    height: min(400px, 52vh);
+  }
+
   .hero-content {
     bottom: 100px;
     left: 48px;
@@ -806,6 +929,20 @@ ul { list-style: none; }
   .section-title-en { font-size: 2.4rem; }
   .section-title-ja { font-size: 1.1rem; }
   .section-header { margin-bottom: 40px; }
+
+  .top-flow {
+    padding-top: calc(var(--header-height) + 16px);
+  }
+
+  .top-flow-slide {
+    width: min(260px, 82vw);
+    height: min(360px, 48vh);
+    border-radius: 12px;
+  }
+
+  .top-flow-marquee {
+    padding: 24px 0 32px;
+  }
 
   .hero-content {
     bottom: 100px;

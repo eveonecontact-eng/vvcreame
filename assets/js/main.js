@@ -99,62 +99,18 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --- Hero Swiper (Fade Carousel) ---
-  const hasSwiper = typeof window.Swiper !== 'undefined';
-  const heroSwiperEl = document.querySelector('.hero-swiper');
+  // --- Top Flow Marquee (右→左・自動スクロール) ---
+  const topFlowMarquee = document.querySelector('.top-flow-marquee');
+  const pauseBtn = document.querySelector('.top-flow-pause');
 
-  function updatePagination(swiper) {
-    const current = document.querySelector('.hero-current');
-    const total = document.querySelector('.hero-total');
-    if (current && total) {
-      current.textContent = swiper.realIndex + 1;
-      total.textContent = swiper.slides.length - 2; // loop duplicates
-    }
-  }
-
-  function startProgress(swiper) {
-    const bar = document.querySelector('.hero-progress-bar');
-    if (!bar) return;
-    bar.style.transition = 'none';
-    bar.style.width = '0%';
-    requestAnimationFrame(() => {
-      bar.style.transition = `width ${swiper.params.autoplay.delay}ms linear`;
-      bar.style.width = '100%';
-    });
-  }
-
-  if (hasSwiper && heroSwiperEl) {
-    new Swiper('.hero-swiper', {
-      effect: 'fade',
-      fadeEffect: { crossFade: true },
-      autoplay: { delay: 5000, disableOnInteraction: false },
-      loop: true,
-      speed: 1200,
-      navigation: {
-        nextEl: '.hero-next',
-        prevEl: '.hero-prev',
-      },
-      on: {
-        init: function () {
-          updatePagination(this);
-          startProgress(this);
-        },
-        slideChange: function () {
-          updatePagination(this);
-          startProgress(this);
-        },
-      },
-    });
-  }
-
-  // --- Gallery Swiper (Horizontal Scroll) ---
-  const gallerySwiperEl = document.querySelector('.gallery-swiper');
-  if (hasSwiper && gallerySwiperEl) {
-    new Swiper('.gallery-swiper', {
-      slidesPerView: 'auto',
-      spaceBetween: 16,
-      freeMode: true,
-      grabCursor: true,
+  if (topFlowMarquee && pauseBtn) {
+    pauseBtn.addEventListener('click', () => {
+      const isPaused = topFlowMarquee.classList.toggle('is-paused');
+      pauseBtn.classList.toggle('is-paused', isPaused);
+      pauseBtn.setAttribute(
+        'aria-label',
+        isPaused ? '自動再生を再開' : '自動再生の一時停止'
+      );
     });
   }
 

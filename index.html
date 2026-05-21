@@ -1,10 +1,10 @@
-<!--
+﻿<!--
   ============================================================
   株式会社EVEONE トップページ
   ============================================================
   ■ 目的：VV CREAM販売会社のコーポレートサイト トップ
   ■ 参考：資生堂ホームページ（画像多用・余白大・高級感）
-  ■ 構成：ヒーロー → ブランド → 商品 → ギャラリー → ニュース → CTA → SNS
+  ■ 構成：トップ画像フロー → ブランド → 商品 → ニュース → CTA → SNS
   ■ 技術：HTML5 + CSS3 + Swiper.js（カルーセル）
   ■ 編集：.cursorrules に詳細な編集ガイドあり
 
@@ -17,7 +17,7 @@
   ============================================================
 -->
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="page-home">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -87,55 +87,54 @@
     </ul>
   </nav>
 
-  <!-- ヒーロー (Swiper カルーセル) -->
-  <section class="hero">
-    <div class="swiper hero-swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <div class="hero-slide">
-            <img src="assets/images/LINE_ALBUM_20260314_260411_8.jpg" alt="EVENE VV CREAM — ラグジュアリーな暖色ライティング" class="hero-img" loading="eager" />
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-              <p class="hero-sub-en">Beauty in Every Detail</p>
-              <h1 class="hero-title">あなたの肌に、<br />自信を。</h1>
-              <a href="products.html" class="btn btn-outline-white">PRODUCTS →</a>
-            </div>
-          </div>
+  <!-- トップ画像フロー（右→左・自動スクロール） -->
+  <section class="top-flow" aria-label="トップ画像">
+    <div class="top-flow-marquee">
+      <div class="top-flow-track">
+        <div class="top-flow-slide">
+          <img src="assets/images/top-flow-01.png" alt="EVENE VV CREAM トップ画像1" width="640" height="960" loading="eager" />
         </div>
-        <div class="swiper-slide">
-          <div class="hero-slide">
-            <img src="assets/images/LINE_ALBUM_20260314_260411_103.jpg" alt="EVENE VV CREAM — ダークトーン×ゴールド" class="hero-img" loading="lazy" />
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-              <p class="hero-sub-en">Natural Coverage, Lasting Confidence</p>
-              <h1 class="hero-title">自然な仕上がりで、<br />一日中美しく。</h1>
-              <a href="products.html" class="btn btn-outline-white">VIEW MORE →</a>
-            </div>
-          </div>
+        <div class="top-flow-slide">
+          <img src="assets/images/top-flow-02.png" alt="EVENE VV CREAM トップ画像2" width="640" height="960" loading="eager" />
         </div>
-        <div class="swiper-slide">
-          <div class="hero-slide">
-            <img src="assets/images/LINE_ALBUM_20260314_260411_215.jpg" alt="EVENE VV CREAM — 和の高級感" class="hero-img" loading="lazy" />
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-              <p class="hero-sub-en">Crafted with Care</p>
-              <h1 class="hero-title">こだわり抜いた<br />一本を。</h1>
-              <a href="business.html#philosophy" class="btn btn-outline-white">OUR STORY →</a>
-            </div>
-          </div>
+        <div class="top-flow-slide">
+          <img src="assets/images/LINE_ALBUM_20260314_260411_111.jpg" alt="EVENE VV CREAM 商品写真" width="640" height="960" loading="lazy" />
+        </div>
+        <div class="top-flow-slide">
+          <img src="assets/images/LINE_ALBUM_20260314_260411_14.jpg" alt="花背景×パッケージ" width="640" height="960" loading="lazy" />
+        </div>
+        <div class="top-flow-slide">
+          <img src="assets/images/LINE_ALBUM_20260314_260411_173.jpg" alt="ゴールドロゴ クローズアップ" width="640" height="960" loading="lazy" />
+        </div>
+        <div class="top-flow-slide">
+          <img src="assets/images/LINE_ALBUM_20260314_260411_66.jpg" alt="ナチュラル素材と商品" width="640" height="960" loading="lazy" />
+        </div>
+        <div class="top-flow-slide" aria-hidden="true">
+          <img src="assets/images/top-flow-01.png" alt="" width="640" height="960" loading="lazy" />
+        </div>
+        <div class="top-flow-slide" aria-hidden="true">
+          <img src="assets/images/top-flow-02.png" alt="" width="640" height="960" loading="lazy" />
+        </div>
+        <div class="top-flow-slide" aria-hidden="true">
+          <img src="assets/images/LINE_ALBUM_20260314_260411_111.jpg" alt="" width="640" height="960" loading="lazy" />
+        </div>
+        <div class="top-flow-slide" aria-hidden="true">
+          <img src="assets/images/LINE_ALBUM_20260314_260411_14.jpg" alt="" width="640" height="960" loading="lazy" />
+        </div>
+        <div class="top-flow-slide" aria-hidden="true">
+          <img src="assets/images/LINE_ALBUM_20260314_260411_173.jpg" alt="" width="640" height="960" loading="lazy" />
+        </div>
+        <div class="top-flow-slide" aria-hidden="true">
+          <img src="assets/images/LINE_ALBUM_20260314_260411_66.jpg" alt="" width="640" height="960" loading="lazy" />
         </div>
       </div>
-      <div class="hero-pagination">
-        <span class="hero-current">1</span>
-        <span class="hero-sep">/</span>
-        <span class="hero-total">3</span>
-      </div>
-      <div class="hero-progress"><div class="hero-progress-bar"></div></div>
-      <div class="swiper-button-prev hero-prev"></div>
-      <div class="swiper-button-next hero-next"></div>
+    </div>
+    <div class="top-flow-controls">
+      <button type="button" class="top-flow-pause" aria-label="自動再生の一時停止">
+        <span class="top-flow-pause-icon" aria-hidden="true"></span>
+      </button>
     </div>
   </section>
-
   <!-- ブランドメッセージ -->
   <section class="section section-brand">
     <div class="container">
@@ -181,35 +180,6 @@
       </div>
       <div class="products-cta">
         <a href="products.html" class="btn btn-outline">VIEW ALL PRODUCTS →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ギャラリー (水平スクロール) -->
-  <section class="section section-gallery">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title-en">GALLERY</h2>
-        <p class="section-title-ja">ギャラリー</p>
-      </div>
-    </div>
-    <div class="swiper gallery-swiper reveal">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide gallery-slide">
-          <img src="assets/images/LINE_ALBUM_20260314_260411_14.jpg" alt="花背景×パッケージ" loading="lazy" />
-        </div>
-        <div class="swiper-slide gallery-slide">
-          <img src="assets/images/LINE_ALBUM_20260314_260411_40.jpg" alt="グリーン背景×商品セット" loading="lazy" />
-        </div>
-        <div class="swiper-slide gallery-slide">
-          <img src="assets/images/LINE_ALBUM_20260314_260411_173.jpg" alt="ゴールドロゴ クローズアップ" loading="lazy" />
-        </div>
-        <div class="swiper-slide gallery-slide">
-          <img src="assets/images/LINE_ALBUM_20260314_260411_56.jpg" alt="窓辺のパッケージ" loading="lazy" />
-        </div>
-        <div class="swiper-slide gallery-slide">
-          <img src="assets/images/LINE_ALBUM_20260314_260411_200.jpg" alt="植物背景×商品" loading="lazy" />
-        </div>
       </div>
     </div>
   </section>
