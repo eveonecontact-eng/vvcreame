@@ -180,11 +180,12 @@ ul { list-style: none; }
 }
 
 .header-wrap {
+  position: relative;
   max-width: 1440px;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 0 40px;
   height: var(--header-height);
   transition: height var(--transition-base);
@@ -195,22 +196,27 @@ ul { list-style: none; }
 }
 
 .header-logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
+  gap: 16px;
   text-decoration: none;
 }
 
 .logo-text {
   font-family: var(--font-en);
-  font-size: 2.2rem;
+  font-size: 3.36rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   color: var(--color-text);
   transition: font-size var(--transition-base);
+  line-height: 1.2;
 }
 
 #header.scrolled .logo-text {
-  font-size: 1.8rem;
+  font-size: 2.64rem;
 }
 
 /* Hamburger */
@@ -1003,8 +1009,8 @@ ul { list-style: none; }
 
   .nav-link { font-size: 2.4rem; }
 
-  .logo-text { font-size: 1.8rem; }
-  #header.scrolled .logo-text { font-size: 1.6rem; }
+  .logo-text { font-size: 2.64rem; }
+  #header.scrolled .logo-text { font-size: 2.16rem; }
 }
 
 /* --- Small Mobile (400px以下) --- */
