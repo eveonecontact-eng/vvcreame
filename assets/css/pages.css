@@ -19,7 +19,7 @@
 }
 
 .page-hero-sub {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 300;
   opacity: 0.7;
   letter-spacing: 0.06em;
@@ -50,14 +50,14 @@
 }
 
 .about-heading {
-  font-size: 2.2rem;
+  font-size: 2.6rem;
   font-weight: 700;
   line-height: 1.5;
   margin-bottom: 24px;
 }
 
 .about-desc {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   line-height: 2.0;
   /* 背景が白でも十分読めるよう濃い文字色に */
   color: var(--color-text);
@@ -118,7 +118,7 @@
 }
 
 .about-story-text .about-desc {
-  font-size: 1.45rem;
+  font-size: 1.65rem;
   line-height: 2.1;
   margin-bottom: 20px;
   color: var(--color-text);
@@ -138,7 +138,7 @@
 .company-table th,
 .company-table td {
   padding: 20px 16px;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   text-align: left;
   vertical-align: top;
 }
@@ -168,21 +168,15 @@
 }
 
 .product-main-image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
-  border-radius: 2px;
+  border-radius: 12px;
   margin-bottom: 16px;
-  aspect-ratio: 3/4;
-  background: var(--color-bg-muted);
 }
 
 .product-main-image img {
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
+  height: auto;
   transition: opacity 0.3s;
 }
 
@@ -215,7 +209,7 @@
 
 .product-category {
   font-family: var(--font-en);
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   letter-spacing: 0.1em;
   color: var(--color-accent);
   margin-bottom: 8px;
@@ -223,14 +217,14 @@
 }
 
 .product-detail-name {
-  font-size: 2.4rem;
+  font-size: 2.8rem;
   font-weight: 700;
   margin-bottom: 24px;
   line-height: 1.4;
 }
 
 .product-detail-desc {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   line-height: 2.0;
   color: var(--color-text-light);
   margin-bottom: 32px;
@@ -248,14 +242,14 @@
 }
 
 .feature-label {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 500;
   width: 120px;
   flex-shrink: 0;
 }
 
 .feature-value {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: var(--color-text-light);
 }
 
@@ -292,20 +286,20 @@
 }
 
 .howto-title {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 8px;
 }
 
 .howto-desc {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: var(--color-text-light);
   line-height: 1.8;
 }
 
 /* --- Business page typography --- */
 html.page-business {
-  --business-text-scale: 1.15;
+  --business-text-scale: 1.2;
   font-size: calc(62.5% * var(--business-text-scale));
 }
 
@@ -317,7 +311,7 @@ html.page-business .business-section-title {
 }
 
 html.page-business .business-section-sub {
-  font-size: 1.8rem;
+  font-size: 2.0rem;
   margin-top: 12px;
   color: var(--color-text-light);
 }
@@ -331,7 +325,7 @@ html.page-business .business-section-sub {
 }
 
 .business-section-sub {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   margin-top: 12px;
   color: var(--color-text-light);
 }
@@ -392,7 +386,7 @@ html.page-business .business-card-title {
 }
 
 .business-heading {
-  font-size: 1.8rem;
+  font-size: 2.0rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   color: var(--color-text);
@@ -412,7 +406,7 @@ html.page-business .business-heading-desc + .business-heading:not(.company-profi
 }
 
 .company-profile-label {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--color-text);
   margin: 24px 0 6px;
@@ -431,24 +425,42 @@ html.page-business .business-heading-desc + .business-heading:not(.company-profi
 }
 
 .business-heading-desc {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   line-height: 2.0;
   color: var(--color-text-light);
   min-height: 3.8em;
 }
 
+.officers-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.officers-content .president-profile {
+  margin-top: 0;
+}
+
+.officers-content .president-profile + .president-profile {
+  margin-top: 48px;
+}
+
+.officers-content .president-profile:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
 .president-profile {
   display: flex;
-  gap: 32px;
-  align-items: stretch;
+  gap: 40px;
+  align-items: center;
   margin-top: 40px;
 }
 
 .president-profile-image {
-  flex: 0 0 200px;
-  width: 200px;
+  flex: 0 0 220px;
+  width: 220px;
   overflow: hidden;
-  border-radius: 2px;
+  border-radius: 12px;
+  background: transparent;
 }
 
 .president-profile-image img {
@@ -457,14 +469,43 @@ html.page-business .business-heading-desc + .business-heading:not(.company-profi
   height: 100%;
   object-fit: cover;
   object-position: center top;
+  border-radius: 12px;
 }
 
 .president-profile-name {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: var(--color-text);
-  margin-bottom: 12px;
+  margin-bottom: 6px;
   letter-spacing: 0.04em;
+}
+
+.president-profile-name-en {
+  font-family: var(--font-en);
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--color-text-light);
+  margin-bottom: 12px;
+}
+
+.president-profile-image--logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  min-height: 220px;
+}
+
+.president-profile-image--logo img {
+  width: 78%;
+  height: auto;
+  max-height: 180px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 0;
+  mix-blend-mode: multiply;
 }
 
 .president-profile-bio {
@@ -494,7 +535,7 @@ html.page-business .business-heading-desc + .business-heading:not(.company-profi
 }
 
 .contact-lead {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   line-height: 2.0;
   color: var(--color-text-light);
 }
@@ -525,13 +566,13 @@ html.page-business .business-heading-desc + .business-heading:not(.company-profi
 }
 
 .form-placeholder p {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: var(--color-text-light);
   margin-bottom: 8px;
 }
 
 .form-placeholder-note {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   opacity: 0.6;
 }
 
@@ -540,7 +581,7 @@ html.page-business .business-heading-desc + .business-heading:not(.company-profi
 }
 
 .contact-line-desc {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   line-height: 2.0;
   color: var(--color-text-light);
   margin-bottom: 32px;
@@ -609,9 +650,13 @@ html.page-business .business-heading-desc + .business-heading:not(.company-profi
     gap: 24px;
   }
 
+  .officers-content .president-profile:nth-child(even) {
+    flex-direction: column;
+  }
+
   .president-profile-image {
     flex: none;
-    width: min(200px, 60%);
+    width: min(220px, 72%);
   }
 
   .president-profile-image img {
@@ -627,22 +672,22 @@ html.page-business .business-heading-desc + .business-heading:not(.company-profi
   .page-hero { padding: 110px 0 52px; }
   .page-hero-title { font-size: 3.0rem; }
 
-  .about-heading { font-size: 1.8rem; }
+  .about-heading { font-size: 2.2rem; }
 
-  .product-detail-name { font-size: 2.0rem; }
+  .product-detail-name { font-size: 2.4rem; }
   .product-thumbnails { gap: 8px; }
   .product-thumb { width: 60px; height: 60px; }
   .feature-label { width: 100px; }
 
   .howto-steps { gap: 40px; }
   .howto-number { font-size: 3.0rem; }
-  .howto-title { font-size: 1.4rem; }
+  .howto-title { font-size: 1.6rem; }
 
   .business-section-title { font-size: 2.2rem; }
-  .business-section-sub { font-size: 1.3rem; }
+  .business-section-sub { font-size: 1.5rem; }
 
   html.page-business .business-section-title { font-size: 3.0rem; }
-  html.page-business .business-section-sub { font-size: 1.5rem; }
+  html.page-business .business-section-sub { font-size: 1.7rem; }
   html.page-business .business-card { padding-top: calc(32px + 2.4em); }
   html.page-business .business-card-title { font-size: 1.9rem; }
 
@@ -651,5 +696,5 @@ html.page-business .business-heading-desc + .business-heading:not(.company-profi
 
   .company-table th { width: 100px; }
   .company-table th,
-  .company-table td { padding: 16px 12px; font-size: 1.3rem; }
+  .company-table td { padding: 16px 12px; font-size: 1.5rem; }
 }

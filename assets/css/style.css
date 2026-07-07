@@ -6,8 +6,8 @@
 :root {
   --color-text: #45433E;
   --color-text-light: #6B6560;
-  --color-bg: #FFFFFF;
-  --color-bg-muted: #F1F1F1;
+  --color-bg: #FAF6EC;
+  --color-bg-muted: #EDE5D6;
   --color-accent: #C80421;
   --color-accent-hover: #D0576A;
   --color-footer-bg: #3D3D3D;
@@ -37,7 +37,7 @@ html {
 
 body {
   font-family: var(--font-ja);
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   line-height: 1.7;
   color: var(--color-text);
   background: var(--color-bg);
@@ -47,7 +47,7 @@ body {
 
 /* トップページ：本文テキストを同比率で拡大（ボタンは除外） */
 html.page-home {
-  --home-text-scale: 1.2;
+  --home-text-scale: 1.25;
   font-size: calc(62.5% * var(--home-text-scale));
 }
 
@@ -96,15 +96,15 @@ ul { list-style: none; }
 
 .section-title-en {
   font-family: var(--font-en);
-  font-size: 3.4rem;
+  font-size: 4.2rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   color: var(--color-text);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .section-title-ja {
-  font-size: 1.2rem;
+  font-size: 1.55rem;
   font-weight: 400;
   color: var(--color-text-light);
   letter-spacing: 0.04em;
@@ -170,13 +170,13 @@ ul { list-style: none; }
   left: 0;
   right: 0;
   z-index: 9999;
-  background: rgba(255,255,255,0.97);
+  background: color-mix(in srgb, var(--color-bg) 97%, transparent);
   backdrop-filter: blur(8px);
   transition: padding var(--transition-base), background var(--transition-base);
 }
 
 #header.scrolled {
-  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+  box-shadow: 0 1px 0 rgba(69, 67, 62, 0.08);
 }
 
 .header-wrap {
@@ -571,14 +571,14 @@ ul { list-style: none; }
 }
 
 .brand-heading {
-  font-size: 2.4rem;
+  font-size: 2.9rem;
   font-weight: 700;
   margin-bottom: 24px;
   line-height: 1.5;
 }
 
 .brand-desc {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   line-height: 2.0;
   color: var(--color-text-light);
   margin-bottom: 40px;
@@ -605,19 +605,17 @@ ul { list-style: none; }
 
 .product-img-wrap {
   position: relative;
-  padding-top: 100%;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
+  border-radius: 2px;
 }
 
 .product-img-wrap img {
-  position: absolute;
-  top: 0;
-  left: 0;
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
-  background: var(--color-bg-muted);
   transition: opacity 0.4s ease;
 }
 
@@ -633,14 +631,14 @@ ul { list-style: none; }
 
 .product-name {
   font-family: var(--font-en);
-  font-size: 2.0rem;
+  font-size: 2.4rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   margin-bottom: 8px;
 }
 
 .product-desc {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: var(--color-text-light);
   margin-bottom: 20px;
 }
@@ -681,43 +679,48 @@ ul { list-style: none; }
 
 /* ===== NEWS ===== */
 .news-list {
-  border-top: 1px solid var(--color-border-light);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .news-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 20px;
-  padding: 20px 0;
-  border-bottom: 1px solid var(--color-border-light);
-  transition: background 0.3s;
+  padding: 24px 28px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-light);
+  border-radius: 12px;
+  transition: box-shadow 0.3s;
 }
 
 .news-item:hover {
-  background: rgba(0,0,0,0.01);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 .news-date {
   font-family: var(--font-en);
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   letter-spacing: 0.04em;
   color: var(--color-text-light);
   flex-shrink: 0;
-  width: 100px;
+  width: 110px;
+  padding-top: 2px;
 }
 
 .news-tag {
-  font-size: 1.0rem;
+  font-size: 1.2rem;
   font-weight: 700;
   letter-spacing: 0.06em;
-  padding: 3px 10px;
+  padding: 4px 12px;
   border: 1px solid var(--color-border);
   border-radius: 2px;
   flex-shrink: 0;
 }
 
 .news-title {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   transition: color 0.3s;
 }
 
@@ -741,20 +744,20 @@ ul { list-style: none; }
 
 .cta-en {
   font-family: var(--font-en);
-  font-size: 2.8rem;
+  font-size: 3.2rem;
   font-weight: 400;
   letter-spacing: 0.06em;
   margin-bottom: 8px;
 }
 
 .cta-title {
-  font-size: 1.8rem;
+  font-size: 2.1rem;
   font-weight: 500;
   margin-bottom: 16px;
 }
 
 .cta-desc {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   opacity: 0.7;
   margin-bottom: 32px;
 }
@@ -777,7 +780,7 @@ ul { list-style: none; }
 
 .sns-link span {
   font-family: var(--font-en);
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   letter-spacing: 0.06em;
 }
 
@@ -815,7 +818,7 @@ ul { list-style: none; }
 }
 
 .footer-nav a {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   letter-spacing: 0.04em;
   opacity: 0.7;
   transition: opacity 0.3s;
@@ -831,7 +834,7 @@ ul { list-style: none; }
 }
 
 .footer-legal a {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   opacity: 0.5;
   transition: opacity 0.3s;
 }
@@ -839,7 +842,7 @@ ul { list-style: none; }
 .footer-legal a:hover { opacity: 0.8; }
 
 .footer-copy {
-  font-size: 1.0rem;
+  font-size: 1.15rem;
   opacity: 0.4;
 }
 
@@ -890,7 +893,7 @@ ul { list-style: none; }
   .container { padding: 0 32px; }
   .header-wrap { padding: 0 32px; }
 
-  .section-title-en { font-size: 3.0rem; }
+  .section-title-en { font-size: 3.6rem; }
 
   .top-flow-slide {
     width: min(280px, 78vw);
@@ -910,7 +913,7 @@ ul { list-style: none; }
     gap: 48px;
   }
 
-  .brand-heading { font-size: 2.2rem; }
+  .brand-heading { font-size: 2.6rem; }
 
   .products-grid {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -934,8 +937,8 @@ ul { list-style: none; }
   .container { padding: 0 20px; }
   .header-wrap { padding: 0 20px; }
 
-  .section-title-en { font-size: 2.4rem; }
-  .section-title-ja { font-size: 1.1rem; }
+  .section-title-en { font-size: 3.0rem; }
+  .section-title-ja { font-size: 1.35rem; }
   .section-header { margin-bottom: 40px; }
 
   .top-flow {
@@ -967,7 +970,7 @@ ul { list-style: none; }
     gap: 32px;
   }
 
-  .brand-heading { font-size: 1.8rem; }
+  .brand-heading { font-size: 2.2rem; }
   .brand-desc { margin-bottom: 28px; }
 
   .products-grid {
@@ -986,13 +989,15 @@ ul { list-style: none; }
 
   .news-item {
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px 12px;
+    padding: 20px;
+    border-radius: 10px;
   }
 
   .news-date { width: auto; }
 
-  .cta-en { font-size: 2.0rem; }
-  .cta-title { font-size: 1.6rem; }
+  .cta-en { font-size: 2.4rem; }
+  .cta-title { font-size: 1.9rem; }
   .section-cta { padding: 60px 0; }
 
   .sns-links { gap: 28px; }
@@ -1020,8 +1025,8 @@ ul { list-style: none; }
   .hero-title { font-size: 2.2rem; }
   .hero-content { bottom: 80px; }
   .btn { min-width: auto; width: 100%; }
-  .section-title-en { font-size: 2.2rem; }
-  .cta-en { font-size: 1.8rem; }
+  .section-title-en { font-size: 2.6rem; }
+  .cta-en { font-size: 2.1rem; }
 }
 
 /* ===== Reduced Motion ===== */

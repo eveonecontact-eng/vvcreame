@@ -1,9 +1,8 @@
 <!--
   ============================================================
-  株式会社EVEONE お知らせページ
+  株式会社EVEONE 役員紹介ページ
   ============================================================
-  ■ 目的：お知らせ一覧を掲載
-  ■ 構成：ページヒーロー → NEWS一覧
+  ■ 目的：役員プロフィールの掲載
   ============================================================
 -->
 <!DOCTYPE html>
@@ -11,38 +10,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NEWS | 株式会社EVEONE</title>
-  <meta name="description" content="株式会社EVEONEからのお知らせ一覧です。" />
+  <title>役員紹介 | 株式会社EVEONE</title>
+  <meta name="description" content="株式会社EVEONEの役員紹介です。" />
   <meta property="og:site_name" content="株式会社EVEONE" />
-  <meta property="og:title" content="NEWS | 株式会社EVEONE" />
-  <meta property="og:description" content="株式会社EVEONEからのお知らせ一覧です。" />
+  <meta property="og:title" content="役員紹介 | 株式会社EVEONE" />
+  <meta property="og:description" content="株式会社EVEONEの役員紹介です。" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="NEWS | 株式会社EVEONE" />
-  <meta name="twitter:description" content="株式会社EVEONEからのお知らせ一覧です。" />
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "name": "株式会社EVEONE",
-          "alternateName": "EVEONE",
-          "url": "https://eveone.base.shop/",
-          "sameAs": [
-            "https://www.instagram.com/eveone_official/",
-            "https://lin.ee/yaQwguZ"
-          ],
-          "description": "株式会社EVEONEからのお知らせ一覧です。"
-        },
-        {
-          "@type": "WebSite",
-          "name": "株式会社EVEONE",
-          "url": "https://eveone.base.shop/"
-        }
-      ]
-    }
-  </script>
+  <meta name="twitter:title" content="役員紹介 | 株式会社EVEONE" />
+  <meta name="twitter:description" content="株式会社EVEONEの役員紹介です。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet" />
@@ -80,35 +56,40 @@
   <!-- ページヒーロー -->
   <section class="page-hero">
     <div class="page-hero-inner">
-      <h1 class="page-hero-title">NEWS</h1>
-      <p class="page-hero-sub">お知らせ</p>
+      <h1 class="page-hero-title">OFFICERS</h1>
+      <p class="page-hero-sub">役員紹介</p>
     </div>
   </section>
 
-  <!-- お知らせ一覧 -->
+  <!-- 代表取締役社長 -->
   <section class="section section-muted">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title-en">NEWS</h2>
-        <p class="section-title-ja">お知らせ</p>
+      <div class="officers-content reveal" aria-label="役員一覧">
+        <div class="president-profile" aria-label="代表取締役社長">
+          <div class="president-profile-image">
+            <img src="assets/images/president-photo.png" alt="代表取締役社長 前田悠斗" loading="lazy" />
+          </div>
+          <div class="president-profile-text">
+            <p class="president-profile-name">代表取締役社長　前田悠斗</p>
+            <p class="president-profile-name-en">Maeda Yuto</p>
+            <p class="business-heading-desc president-profile-bio">
+              2005年生まれ。岡山県出身。鳥取県育ち。３歳から極真空手を始め、黒帯を取得、全国大会優勝も経験。日本大学商学部入学と同時に上京。1年生時に日本大学で起業サークルを立ち上げ、現在２２０人ほどの規模に成長。2025年に株式会社EVEONEを起業し、メンズ化粧品ブランドの立ち上げに取り組む。現在は様々なことにチャレンジし、新規事業案の具体化やサークル運営を行っている。
+            </p>
+          </div>
+        </div>
+        <div class="president-profile" aria-label="執行役員">
+          <div class="president-profile-image president-profile-image--logo">
+            <img src="assets/images/eveone-logo.png" alt="" loading="lazy" />
+          </div>
+          <div class="president-profile-text">
+            <p class="president-profile-name">執行役員　草彅成慶</p>
+            <p class="president-profile-name-en">Kusanagi Nariyasu</p>
+            <p class="business-heading-desc president-profile-bio">
+              2005年生まれ。東京生まれ、東京育ち。日本大学商学部に入学と同時にスタートアップサークルにサークル生１人目として加入。その後、前田とともに事業立ち上げに携わる。現在は、化粧品事業の遂行、IT導入、サークル運営の補助、新規事業の立ち上げを行っている。事務仕事、雑務をはじめ、縁の下の力持ちとして従事している。
+            </p>
+          </div>
+        </div>
       </div>
-      <ul class="news-list reveal">
-        <li class="news-item">
-          <time class="news-date" datetime="2026-04-30">2026.04.30</time>
-          <span class="news-tag">INFO</span>
-          <span class="news-title">ただいま、ホームページの検索欄で不具合が発生しております。<br>旧ホームページとの兼ね合いで一部ご使用になれないURLがまだ検索欄に残っております。<br>2週間ほどで消えることを想定しておりますので、よろしくお願いいたします。</span>
-        </li>
-        <li class="news-item">
-          <time class="news-date" datetime="2026-04-11">2026.04.11</time>
-          <span class="news-tag">INFO</span>
-          <span class="news-title">公式ホームページをオープンしました</span>
-        </li>
-        <li class="news-item">
-          <time class="news-date" datetime="2026-04-19">2026.04.19</time>
-          <span class="news-tag">EVENT</span>
-          <span class="news-title">モデル撮影を実施予定</span>
-        </li>
-      </ul>
     </div>
   </section>
 
