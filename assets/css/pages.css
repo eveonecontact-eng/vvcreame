@@ -253,6 +253,134 @@
   color: var(--color-text-light);
 }
 
+/* --- Before & After --- */
+.before-after {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.before-after-item {
+  flex: 1;
+  margin: 0;
+  text-align: center;
+}
+
+.before-after-img {
+  overflow: hidden;
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+
+.before-after-img img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.before-after-label {
+  font-family: var(--font-en);
+  font-size: 2.6rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--color-text);
+}
+
+.before-after-arrow {
+  flex-shrink: 0;
+  font-family: var(--font-en);
+  font-size: 2.8rem;
+  font-weight: 300;
+  color: var(--color-accent);
+  line-height: 1;
+  padding-bottom: 44px;
+}
+
+.before-after-copy {
+  max-width: 640px;
+  margin: 56px auto 0;
+  text-align: center;
+}
+
+.before-after-lead {
+  font-size: 1.7rem;
+  line-height: 2.0;
+  color: var(--color-text);
+  margin-bottom: 32px;
+}
+
+.before-after-lead em {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.15em;
+}
+
+.before-after-emphasis {
+  font-size: 2.0rem;
+  font-weight: 700;
+  line-height: 1.9;
+  color: var(--color-text);
+  margin-bottom: 40px;
+}
+
+.before-after-body {
+  font-size: 1.55rem;
+  line-height: 2.0;
+  color: var(--color-text-light);
+  margin-bottom: 24px;
+}
+
+.before-after-body:last-child {
+  margin-bottom: 0;
+}
+
+.product-feature-block {
+  max-width: 640px;
+  margin: 72px auto 0;
+  padding-top: 56px;
+  border-top: 1px solid var(--color-border-light);
+  text-align: center;
+}
+
+.product-feature-heading {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-text);
+  margin-bottom: 32px;
+}
+
+.product-feature-lead {
+  font-size: 1.7rem;
+  line-height: 2.0;
+  color: var(--color-text);
+  margin-bottom: 32px;
+}
+
+.product-feature-lead em {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+.product-feature-body {
+  font-size: 1.55rem;
+  line-height: 2.0;
+  color: var(--color-text-light);
+  margin-bottom: 28px;
+}
+
+.product-feature-note {
+  font-size: 1.65rem;
+  font-weight: 500;
+  line-height: 2.0;
+  color: var(--color-text);
+}
+
 /* --- How To Use --- */
 .howto-steps {
   display: grid;
@@ -466,10 +594,17 @@ html.page-business .business-heading-desc + .business-heading:not(.company-profi
 .president-profile-image img {
   display: block;
   width: 100%;
-  height: 100%;
+  aspect-ratio: 3 / 4;
+  height: auto;
   object-fit: cover;
   object-position: center top;
   border-radius: 12px;
+}
+
+.president-profile-image--kusanagi img {
+  object-position: 74% 62%;
+  transform: scale(1.35);
+  transform-origin: 74% 62%;
 }
 
 .president-profile-name {
@@ -622,6 +757,8 @@ html.page-business .business-heading-desc + .business-heading:not(.company-profi
 
   .product-detail { gap: 48px; }
 
+  .before-after { gap: 20px; max-width: 640px; }
+
   .howto-steps { gap: 32px; }
 
   .business-grid { gap: 20px; }
@@ -639,6 +776,10 @@ html.page-business .business-heading-desc + .business-heading:not(.company-profi
   .about-story { grid-template-columns: 1fr; gap: 32px; }
 
   .product-detail { grid-template-columns: 1fr; gap: 40px; }
+
+  .before-after { gap: 14px; max-width: 520px; }
+  .before-after-arrow { font-size: 2.2rem; padding-bottom: 36px; }
+  .before-after-label { font-size: 2.2rem; }
 
   .howto-steps { grid-template-columns: 1fr; gap: 40px; }
 
@@ -678,6 +819,29 @@ html.page-business .business-heading-desc + .business-heading:not(.company-profi
   .product-thumbnails { gap: 8px; }
   .product-thumb { width: 60px; height: 60px; }
   .feature-label { width: 100px; }
+
+  .before-after {
+    gap: 10px;
+    max-width: 100%;
+  }
+
+  .before-after-arrow {
+    font-size: 2.0rem;
+    padding-bottom: 32px;
+  }
+
+  .before-after-label { font-size: 2.0rem; }
+
+  .before-after-copy { margin-top: 40px; }
+  .before-after-lead { font-size: 1.5rem; }
+  .before-after-emphasis { font-size: 1.75rem; margin-bottom: 32px; }
+  .before-after-body { font-size: 1.4rem; }
+
+  .product-feature-block { margin-top: 48px; padding-top: 40px; }
+  .product-feature-heading { font-size: 1.9rem; margin-bottom: 24px; }
+  .product-feature-lead { font-size: 1.5rem; }
+  .product-feature-body { font-size: 1.4rem; }
+  .product-feature-note { font-size: 1.5rem; }
 
   .howto-steps { gap: 40px; }
   .howto-number { font-size: 3.0rem; }
