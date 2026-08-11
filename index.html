@@ -4,7 +4,7 @@
   ============================================================
   ■ 目的：VV CREAM販売会社のコーポレートサイト トップ
   ■ 参考：資生堂ホームページ（画像多用・余白大・高級感）
-  ■ 構成：トップ画像フロー → ブランド → 商品 → ニュース → CTA → SNS
+  ■ 構成：トップ画像フロー → 告知（PICK UP） → ブランド → 商品 → ニュース → CTA → SNS
   ■ 技術：HTML5 + CSS3 + Swiper.js（カルーセル）
   ■ 編集：.cursorrules に詳細な編集ガイドあり
 
@@ -93,28 +93,34 @@
     <div class="top-flow-marquee">
       <div class="top-flow-track">
         <div class="top-flow-slide">
-          <img src="assets/images/LINE_ALBUM_20260314_260411_111.jpg" alt="EVENE VV CREAM 商品写真" width="640" height="960" loading="eager" />
+          <img src="assets/images/top-flow-04.png" alt="EVENE VV CREAM モデルカット" width="640" height="960" loading="eager" />
         </div>
         <div class="top-flow-slide">
           <img src="assets/images/LINE_ALBUM_20260314_260411_14.jpg" alt="花背景×パッケージ" width="640" height="960" loading="lazy" />
         </div>
         <div class="top-flow-slide">
+          <img src="assets/images/top-flow-03.png" alt="プレゼンテーションの様子" width="640" height="960" loading="lazy" />
+        </div>
+        <div class="top-flow-slide">
           <img src="assets/images/LINE_ALBUM_20260314_260411_173.jpg" alt="ゴールドロゴ クローズアップ" width="640" height="960" loading="lazy" />
         </div>
         <div class="top-flow-slide">
-          <img src="assets/images/LINE_ALBUM_20260314_260411_66.jpg" alt="ナチュラル素材と商品" width="640" height="960" loading="lazy" />
+          <img src="assets/images/top-flow-05.png" alt="イベント会場の様子" width="640" height="960" loading="lazy" />
         </div>
         <div class="top-flow-slide" aria-hidden="true">
-          <img src="assets/images/LINE_ALBUM_20260314_260411_111.jpg" alt="" width="640" height="960" loading="lazy" />
+          <img src="assets/images/top-flow-04.png" alt="" width="640" height="960" loading="lazy" />
         </div>
         <div class="top-flow-slide" aria-hidden="true">
           <img src="assets/images/LINE_ALBUM_20260314_260411_14.jpg" alt="" width="640" height="960" loading="lazy" />
         </div>
         <div class="top-flow-slide" aria-hidden="true">
+          <img src="assets/images/top-flow-03.png" alt="" width="640" height="960" loading="lazy" />
+        </div>
+        <div class="top-flow-slide" aria-hidden="true">
           <img src="assets/images/LINE_ALBUM_20260314_260411_173.jpg" alt="" width="640" height="960" loading="lazy" />
         </div>
         <div class="top-flow-slide" aria-hidden="true">
-          <img src="assets/images/LINE_ALBUM_20260314_260411_66.jpg" alt="" width="640" height="960" loading="lazy" />
+          <img src="assets/images/top-flow-05.png" alt="" width="640" height="960" loading="lazy" />
         </div>
       </div>
     </div>
@@ -124,6 +130,31 @@
       </button>
     </div>
   </section>
+
+  <!-- 告知・広告（期間ごとに題名・画像・説明を差し替え） -->
+  <section class="section section-muted section-pickup" aria-label="告知">
+    <div class="container">
+      <article class="pickup-panel reveal">
+        <div class="pickup-content">
+          <div class="pickup-image">
+            <img src="assets/images/pickup-event.png" alt="合同説明会のお知らせ" loading="lazy" />
+          </div>
+          <div class="pickup-text">
+            <p class="pickup-label">PICK UP</p>
+            <h2 class="pickup-title">合同説明会のお知らせ</h2>
+            <p class="pickup-date">2026.10.10　TOKYO</p>
+            <p class="pickup-desc">
+              10月10日に都内で合同説明会を開催いたします。<br />
+              募集を始めたばかりですが、すでに数社様から良いお返事をいただいております。<br />
+              少しでもご興味を持たれた企業様はぜひご連絡ください。
+            </p>
+            <a href="contact.html" class="btn btn-outline btn-sm pickup-cta">お問い合わせ →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <!-- ブランドメッセージ -->
   <section class="section section-brand">
     <div class="container">
@@ -133,7 +164,7 @@
       </div>
       <div class="brand-content reveal">
         <div class="brand-image">
-          <img src="assets/images/LINE_ALBUM_20260314_260411_66.jpg" alt="ナチュラル素材と商品" loading="lazy" />
+          <img src="assets/images/brand-eveone.png" alt="EVEONE — LOOK GOOD. FEEL CONFIDENT." loading="lazy" />
         </div>
         <div class="brand-text">
           <h3 class="brand-heading">美しさの本質を追求する</h3>

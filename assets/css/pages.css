@@ -36,12 +36,14 @@
 .about-philosophy-image {
   overflow: hidden;
   border-radius: 2px;
+  background: #111;
 }
 
 .about-philosophy-image img {
   width: 100%;
-  aspect-ratio: 4/5;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
+  object-position: center;
   transition: transform 0.6s ease;
 }
 
@@ -72,23 +74,45 @@
   letter-spacing: 0.04em;
 }
 
-/* --- About: Message --- */
-.about-message {
+/* --- About: Message / MVV --- */
+.mvv-list {
+  max-width: 900px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 2fr;
   gap: 56px;
-  align-items: start;
 }
 
-.about-message-image {
-  overflow: hidden;
-  border-radius: 2px;
+.mvv-item {
+  padding-top: 8px;
 }
 
-.about-message-image img {
-  width: 100%;
-  aspect-ratio: 3/4;
-  object-fit: cover;
+.mvv-item + .mvv-item {
+  border-top: 1px solid var(--color-border-light);
+  padding-top: 48px;
+}
+
+.mvv-title {
+  font-family: var(--font-en);
+  font-size: 3.2rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--color-text);
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.mvv-title-ja {
+  font-size: 1.45rem;
+  color: var(--color-text-light);
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+}
+
+.mvv-lead {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.8;
+  color: var(--color-text);
 }
 
 /* --- About: Story --- */
@@ -753,7 +777,6 @@ html.page-business .business-heading-desc + .business-heading:not(.company-profi
   html.page-business .business-card-title { font-size: 2.0rem; }
 
   .about-philosophy { gap: 48px; }
-  .about-message { gap: 40px; }
 
   .product-detail { gap: 48px; }
 
@@ -772,7 +795,6 @@ html.page-business .business-heading-desc + .business-heading:not(.company-profi
 /* Tablet Portrait / 大きめスマホ (601px〜768px) */
 @media (max-width: 768px) {
   .about-philosophy { grid-template-columns: 1fr; gap: 40px; }
-  .about-message { grid-template-columns: 1fr; gap: 32px; }
   .about-story { grid-template-columns: 1fr; gap: 32px; }
 
   .product-detail { grid-template-columns: 1fr; gap: 40px; }
@@ -814,6 +836,11 @@ html.page-business .business-heading-desc + .business-heading:not(.company-profi
   .page-hero-title { font-size: 3.0rem; }
 
   .about-heading { font-size: 2.2rem; }
+
+  .mvv-list { gap: 40px; }
+  .mvv-item + .mvv-item { padding-top: 36px; }
+  .mvv-title { font-size: 2.6rem; }
+  .mvv-lead { font-size: 1.6rem; }
 
   .product-detail-name { font-size: 2.4rem; }
   .product-thumbnails { gap: 8px; }
