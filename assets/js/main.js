@@ -99,19 +99,100 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --- Top Flow Marquee (右→左・自動スクロール) ---
+  // --- Top Flow Marquee（自動スクロール + 手動スワイプ対応） ---
   const topFlowMarquee = document.querySelector('.top-flow-marquee');
+  const topFlowTrack = topFlowMarquee ? topFlowMarquee.querySelector('.top-flow-track') : null;
   const pauseBtn = document.querySelector('.top-flow-pause');
 
-  if (topFlowMarquee && pauseBtn) {
-    pauseBtn.addEventListener('click', () => {
-      const isPaused = topFlowMarquee.classList.toggle('is-paused');
-      pauseBtn.classList.toggle('is-paused', isPaused);
-      pauseBtn.setAttribute(
-        'aria-label',
-        isPaused ? '自動再生を再開' : '自動再生の一時停止'
-      );
+  if (topFlowMarquee && topFlowTrack) {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let buttonPaused = false;
+    let userInteracting = false;
+    let resumeTimer = null;
+    let scrollCarry = 0;
+    const speed = 0.45;
+
+    const halfWidth = () => topFlowTrack.scrollWidth / 2;
+
+    const pauseForUser = () => {
+      userInteracting = true;
+      clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(() => {
+        userInteracting = false;
+      }, 1800);
+    };
+
+    const normalizeLoop = () => {
+      const loopAt = halfWidth();
+      if (loopAt <= 0) return;
+      if (topFlowMarquee.scrollLeft >= loopAt) {
+        topFlowMarquee.scrollLeft -= loopAt;
+      } else if (topFlowMarquee.scrollLeft <= 0) {
+        topFlowMarquee.scrollLeft += loopAt;
+      }
+    };
+
+    const tick = () => {
+      if (!buttonPaused && !userInteracting && !reduceMotion && !document.hidden) {
+        scrollCarry += speed;
+        const step = Math.floor(scrollCarry);
+        if (step > 0) {
+          topFlowMarquee.scrollLeft += step;
+          scrollCarry -= step;
+          normalizeLoop();
+        }
+      }
+      requestAnimationFrame(tick);
+    };
+
+    topFlowMarquee.addEventListener('touchstart', pauseForUser, { passive: true });
+    topFlowMarquee.addEventListener('touchmove', pauseForUser, { passive: true });
+    topFlowMarquee.addEventListener('wheel', pauseForUser, { passive: true });
+    topFlowMarquee.addEventListener('scroll', () => {
+      if (userInteracting) normalizeLoop();
+    }, { passive: true });
+
+    // マウスドラッグでも横スクロール
+    let isDragging = false;
+    let startX = 0;
+    let startScroll = 0;
+
+    topFlowMarquee.addEventListener('pointerdown', (e) => {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      isDragging = true;
+      startX = e.clientX;
+      startScroll = topFlowMarquee.scrollLeft;
+      topFlowMarquee.classList.add('is-dragging');
+      pauseForUser();
+      topFlowMarquee.setPointerCapture(e.pointerId);
     });
+
+    topFlowMarquee.addEventListener('pointermove', (e) => {
+      if (!isDragging) return;
+      pauseForUser();
+      topFlowMarquee.scrollLeft = startScroll - (e.clientX - startX);
+    });
+
+    const endDrag = () => {
+      isDragging = false;
+      topFlowMarquee.classList.remove('is-dragging');
+    };
+
+    topFlowMarquee.addEventListener('pointerup', endDrag);
+    topFlowMarquee.addEventListener('pointercancel', endDrag);
+
+    if (pauseBtn) {
+      pauseBtn.addEventListener('click', () => {
+        buttonPaused = !buttonPaused;
+        pauseBtn.classList.toggle('is-paused', buttonPaused);
+        pauseBtn.setAttribute(
+          'aria-label',
+          buttonPaused ? '自動再生を再開' : '自動再生の一時停止'
+        );
+      });
+    }
+
+    requestAnimationFrame(tick);
   }
 
   // --- Header Scroll Effect ---

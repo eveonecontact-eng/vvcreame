@@ -67,11 +67,13 @@
 }
 
 .about-sign {
-  font-family: var(--font-en);
-  font-size: 2.0rem;
+  font-family: var(--font-ja);
+  font-size: 1.7rem;
   font-weight: 500;
-  margin-top: 32px;
-  letter-spacing: 0.04em;
+  margin-top: 36px;
+  letter-spacing: 0.06em;
+  text-align: right;
+  color: var(--color-text);
 }
 
 /* --- About: Message / MVV --- */
@@ -124,21 +126,9 @@
 }
 
 .about-story {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 56px;
-  align-items: start;
-}
-
-.about-story-image {
-  overflow: hidden;
-  border-radius: 2px;
-}
-
-.about-story-image img {
-  width: 100%;
-  aspect-ratio: 4/5;
-  object-fit: cover;
+  display: block;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .about-story-text .about-desc {
@@ -146,6 +136,14 @@
   line-height: 2.1;
   margin-bottom: 20px;
   color: var(--color-text);
+}
+
+.about-story-text .about-desc-quote {
+  font-size: 1.85rem;
+  font-weight: 700;
+  line-height: 1.9;
+  margin: 28px 0;
+  text-align: center;
 }
 
 /* --- Company Table --- */
@@ -482,6 +480,84 @@ html.page-business .business-section-sub {
   color: var(--color-text-light);
 }
 
+.business-panels {
+  display: grid;
+  gap: 32px;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  justify-items: stretch;
+}
+
+.business-panel.pickup-panel {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.business-panel .pickup-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  grid-template-columns: none;
+}
+
+.business-panel .pickup-title {
+  font-size: 2.4rem;
+  margin-bottom: 16px;
+}
+
+.business-panel .pickup-desc {
+  margin-bottom: 0;
+}
+
+.business-panel .pickup-desc a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.business-panel-image {
+  flex: 0 0 180px;
+  width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: auto;
+  background: transparent;
+  border: none;
+  overflow: visible;
+}
+
+.business-panel-image img {
+  display: block;
+  width: 180px;
+  max-width: 180px;
+  height: auto;
+  max-height: none;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+.business-panel-image img[src*="eveone-logo"],
+.business-panel-image img[src*="circle-logo"] {
+  mix-blend-mode: multiply;
+}
+
+.business-panel .pickup-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.business-panel:hover .business-panel-image img {
+  transform: none;
+}
+
 .business-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -795,7 +871,6 @@ html.page-business .business-heading-desc + .business-heading:not(.company-profi
 /* Tablet Portrait / 大きめスマホ (601px〜768px) */
 @media (max-width: 768px) {
   .about-philosophy { grid-template-columns: 1fr; gap: 40px; }
-  .about-story { grid-template-columns: 1fr; gap: 32px; }
 
   .product-detail { grid-template-columns: 1fr; gap: 40px; }
 
@@ -806,6 +881,21 @@ html.page-business .business-heading-desc + .business-heading:not(.company-profi
   .howto-steps { grid-template-columns: repeat(2, 1fr); gap: 40px; }
 
   .business-grid { grid-template-columns: 1fr; }
+
+  .business-panels { gap: 24px; }
+  .business-panel { padding: 36px; }
+  .business-panel .pickup-title { font-size: 2.2rem; }
+  .business-panel .pickup-content {
+    gap: 28px;
+  }
+  .business-panel-image {
+    flex-basis: 150px;
+    width: 150px;
+  }
+  .business-panel-image img {
+    width: 150px;
+    max-width: 150px;
+  }
 
   .president-profile {
     flex-direction: column;
@@ -881,6 +971,22 @@ html.page-business .business-heading-desc + .business-heading:not(.company-profi
   html.page-business .business-section-sub { font-size: 1.7rem; }
   html.page-business .business-card { padding-top: calc(32px + 2.4em); }
   html.page-business .business-card-title { font-size: 1.9rem; }
+
+  .business-panel { padding: 28px; }
+  .business-panel .pickup-title { font-size: 2.0rem; }
+  .business-panel .pickup-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .business-panel-image {
+    flex-basis: auto;
+    width: auto;
+  }
+  .business-panel-image img {
+    width: 130px;
+    max-width: 130px;
+  }
 
   .contact-card { padding: 28px 20px; }
   .form-placeholder { padding: 48px 20px; }
