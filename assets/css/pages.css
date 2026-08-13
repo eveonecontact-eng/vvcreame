@@ -315,7 +315,7 @@
 .before-after-arrow {
   flex-shrink: 0;
   font-family: var(--font-en);
-  font-size: 2.8rem;
+  font-size: 5.2rem;
   font-weight: 300;
   color: var(--color-accent);
   line-height: 1;
@@ -875,7 +875,7 @@ html.page-business .business-heading-desc + .business-heading:not(.company-profi
   .product-detail { grid-template-columns: 1fr; gap: 40px; }
 
   .before-after { gap: 14px; max-width: 520px; }
-  .before-after-arrow { font-size: 2.2rem; padding-bottom: 36px; }
+  .before-after-arrow { font-size: 4.0rem; padding-bottom: 36px; }
   .before-after-label { font-size: 2.2rem; }
 
   .howto-steps { grid-template-columns: repeat(2, 1fr); gap: 40px; }
@@ -943,7 +943,7 @@ html.page-business .business-heading-desc + .business-heading:not(.company-profi
   }
 
   .before-after-arrow {
-    font-size: 2.0rem;
+    font-size: 3.4rem;
     padding-bottom: 32px;
   }
 
