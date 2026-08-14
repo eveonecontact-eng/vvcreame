@@ -106,13 +106,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (topFlowMarquee && topFlowTrack) {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const firstSet = topFlowTrack.querySelector('.top-flow-set');
     let buttonPaused = false;
     let userInteracting = false;
     let resumeTimer = null;
+    let offset = 0;
     let scrollCarry = 0;
     const speed = 0.45;
 
-    const halfWidth = () => topFlowTrack.scrollWidth / 2;
+    const loopWidth = () => (firstSet ? firstSet.offsetWidth : topFlowTrack.scrollWidth / 2);
+
+    const applyOffset = () => {
+      const w = loopWidth();
+      if (w > 0) {
+        offset = ((offset % w) + w) % w;
+      }
+      topFlowTrack.style.transform = 'translate3d(' + (-offset) + 'px,0,0)';
+    };
 
     const pauseForUser = () => {
       userInteracting = true;
@@ -122,46 +132,57 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 1800);
     };
 
-    const normalizeLoop = () => {
-      const loopAt = halfWidth();
-      if (loopAt <= 0) return;
-      if (topFlowMarquee.scrollLeft >= loopAt) {
-        topFlowMarquee.scrollLeft -= loopAt;
-      } else if (topFlowMarquee.scrollLeft <= 0) {
-        topFlowMarquee.scrollLeft += loopAt;
+    const ensureCopies = () => {
+      if (!firstSet) return;
+      const w = loopWidth();
+      if (w <= 0) return;
+      const needed = topFlowMarquee.clientWidth + w + 1;
+      let guard = 0;
+      while (topFlowTrack.scrollWidth < needed && guard < 8) {
+        const clone = firstSet.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        topFlowTrack.appendChild(clone);
+        guard += 1;
       }
     };
 
-    const tick = () => {
-      if (!buttonPaused && !userInteracting && !reduceMotion && !document.hidden) {
-        scrollCarry += speed;
-        const step = Math.floor(scrollCarry);
-        if (step > 0) {
-          topFlowMarquee.scrollLeft += step;
-          scrollCarry -= step;
-          normalizeLoop();
+    ensureCopies();
+    window.addEventListener('resize', ensureCopies);
+
+    if (reduceMotion) {
+      topFlowMarquee.style.overflowX = 'auto';
+    } else {
+      const tick = () => {
+        if (!buttonPaused && !userInteracting && !document.hidden) {
+          scrollCarry += speed;
+          const step = Math.floor(scrollCarry);
+          if (step > 0) {
+            offset += step;
+            scrollCarry -= step;
+            applyOffset();
+          }
         }
-      }
+        requestAnimationFrame(tick);
+      };
       requestAnimationFrame(tick);
-    };
+    }
 
-    topFlowMarquee.addEventListener('touchstart', pauseForUser, { passive: true });
-    topFlowMarquee.addEventListener('touchmove', pauseForUser, { passive: true });
-    topFlowMarquee.addEventListener('wheel', pauseForUser, { passive: true });
-    topFlowMarquee.addEventListener('scroll', () => {
-      if (userInteracting) normalizeLoop();
+    topFlowMarquee.addEventListener('wheel', (e) => {
+      if (reduceMotion || Math.abs(e.deltaX) < 1) return;
+      pauseForUser();
+      offset += e.deltaX;
+      applyOffset();
     }, { passive: true });
 
-    // マウスドラッグでも横スクロール
     let isDragging = false;
     let startX = 0;
-    let startScroll = 0;
+    let startOffset = 0;
 
     topFlowMarquee.addEventListener('pointerdown', (e) => {
       if (e.pointerType === 'mouse' && e.button !== 0) return;
       isDragging = true;
       startX = e.clientX;
-      startScroll = topFlowMarquee.scrollLeft;
+      startOffset = offset;
       topFlowMarquee.classList.add('is-dragging');
       pauseForUser();
       topFlowMarquee.setPointerCapture(e.pointerId);
@@ -170,7 +191,8 @@ document.addEventListener('DOMContentLoaded', () => {
     topFlowMarquee.addEventListener('pointermove', (e) => {
       if (!isDragging) return;
       pauseForUser();
-      topFlowMarquee.scrollLeft = startScroll - (e.clientX - startX);
+      offset = startOffset - (e.clientX - startX);
+      applyOffset();
     });
 
     const endDrag = () => {
@@ -191,8 +213,6 @@ document.addEventListener('DOMContentLoaded', () => {
         );
       });
     }
-
-    requestAnimationFrame(tick);
   }
 
   // --- Header Scroll Effect ---
