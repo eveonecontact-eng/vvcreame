@@ -339,21 +339,24 @@ ul { list-style: none; }
 
 .top-flow-marquee {
   width: 100%;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   padding: 32px 0 40px;
   cursor: grab;
-  touch-action: pan-y;
+  touch-action: pan-x pan-y;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
 }
 
 .top-flow-marquee.is-dragging {
   cursor: grabbing;
+  scroll-snap-type: none;
 }
 
 .top-flow-track {
   display: flex;
   width: max-content;
-  will-change: transform;
-  backface-visibility: hidden;
 }
 
 .top-flow-set {

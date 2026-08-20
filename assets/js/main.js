@@ -110,33 +110,47 @@ document.addEventListener('DOMContentLoaded', () => {
     let buttonPaused = false;
     let userInteracting = false;
     let resumeTimer = null;
-    let offset = 0;
-    let scrollCarry = 0;
-    const speed = 0.45;
+    let lastTs = 0;
+    const pxPerSecond = 28;
 
     const loopWidth = () => (firstSet ? firstSet.offsetWidth : topFlowTrack.scrollWidth / 2);
-
-    const applyOffset = () => {
-      const w = loopWidth();
-      if (w > 0) {
-        offset = ((offset % w) + w) % w;
-      }
-      topFlowTrack.style.transform = 'translate3d(' + (-offset) + 'px,0,0)';
-    };
 
     const pauseForUser = () => {
       userInteracting = true;
       clearTimeout(resumeTimer);
       resumeTimer = setTimeout(() => {
         userInteracting = false;
-      }, 1800);
+        lastTs = 0;
+      }, 220);
+    };
+
+    const normalizeLoop = () => {
+      const w = loopWidth();
+      if (w <= 0) return;
+      const sl = topFlowMarquee.scrollLeft;
+      const maxScroll = topFlowTrack.scrollWidth - topFlowMarquee.clientWidth;
+
+      if (userInteracting) {
+        if (maxScroll > w && sl > maxScroll - 80) {
+          topFlowMarquee.scrollLeft = sl - w;
+        } else if (sl <= 0) {
+          topFlowMarquee.scrollLeft = sl + w;
+        }
+        return;
+      }
+
+      if (sl >= w) {
+        topFlowMarquee.scrollLeft = sl - w * Math.floor(sl / w);
+      } else if (sl < 0) {
+        topFlowMarquee.scrollLeft = sl + w;
+      }
     };
 
     const ensureCopies = () => {
       if (!firstSet) return;
       const w = loopWidth();
       if (w <= 0) return;
-      const needed = topFlowMarquee.clientWidth + w + 1;
+      const needed = topFlowMarquee.clientWidth + w * 3 + 1;
       let guard = 0;
       while (topFlowTrack.scrollWidth < needed && guard < 8) {
         const clone = firstSet.cloneNode(true);
@@ -149,40 +163,39 @@ document.addEventListener('DOMContentLoaded', () => {
     ensureCopies();
     window.addEventListener('resize', ensureCopies);
 
-    if (reduceMotion) {
-      topFlowMarquee.style.overflowX = 'auto';
-    } else {
-      const tick = () => {
+    if (!reduceMotion) {
+      const tick = (ts) => {
+        if (!lastTs) lastTs = ts;
+        const dt = Math.min((ts - lastTs) / 1000, 0.05);
+        lastTs = ts;
+
         if (!buttonPaused && !userInteracting && !document.hidden) {
-          scrollCarry += speed;
-          const step = Math.floor(scrollCarry);
-          if (step > 0) {
-            offset += step;
-            scrollCarry -= step;
-            applyOffset();
-          }
+          topFlowMarquee.scrollLeft += pxPerSecond * dt;
+          normalizeLoop();
         }
         requestAnimationFrame(tick);
       };
       requestAnimationFrame(tick);
     }
 
-    topFlowMarquee.addEventListener('wheel', (e) => {
-      if (reduceMotion || Math.abs(e.deltaX) < 1) return;
-      pauseForUser();
-      offset += e.deltaX;
-      applyOffset();
+    topFlowMarquee.addEventListener('scroll', () => {
+      normalizeLoop();
+      if (userInteracting) pauseForUser();
     }, { passive: true });
+
+    topFlowMarquee.addEventListener('touchstart', pauseForUser, { passive: true });
+    topFlowMarquee.addEventListener('touchmove', pauseForUser, { passive: true });
+    topFlowMarquee.addEventListener('wheel', pauseForUser, { passive: true });
 
     let isDragging = false;
     let startX = 0;
-    let startOffset = 0;
+    let startScroll = 0;
 
     topFlowMarquee.addEventListener('pointerdown', (e) => {
-      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
       isDragging = true;
       startX = e.clientX;
-      startOffset = offset;
+      startScroll = topFlowMarquee.scrollLeft;
       topFlowMarquee.classList.add('is-dragging');
       pauseForUser();
       topFlowMarquee.setPointerCapture(e.pointerId);
@@ -191,8 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
     topFlowMarquee.addEventListener('pointermove', (e) => {
       if (!isDragging) return;
       pauseForUser();
-      offset = startOffset - (e.clientX - startX);
-      applyOffset();
+      topFlowMarquee.scrollLeft = startScroll - (e.clientX - startX);
     });
 
     const endDrag = () => {
@@ -202,6 +214,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     topFlowMarquee.addEventListener('pointerup', endDrag);
     topFlowMarquee.addEventListener('pointercancel', endDrag);
+
+    document.addEventListener('visibilitychange', () => {
+      lastTs = 0;
+    });
 
     if (pauseBtn) {
       pauseBtn.addEventListener('click', () => {
