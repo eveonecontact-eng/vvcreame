@@ -10,7 +10,17 @@
   text-align: center;
 }
 
+.page-hero-heading {
+  font-size: unset;
+  font-weight: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+
 .page-hero-title {
+  display: block;
   font-family: var(--font-en);
   font-size: 4.8rem;
   font-weight: 600;
@@ -19,6 +29,7 @@
 }
 
 .page-hero-sub {
+  display: block;
   font-size: 1.5rem;
   font-weight: 300;
   opacity: 0.7;
@@ -710,6 +721,8 @@ html.page-business .business-heading-desc + .business-heading:not(.company-profi
 .president-profile-name {
   font-size: 1.6rem;
   font-weight: 700;
+  font-family: inherit;
+  line-height: inherit;
   color: var(--color-text);
   margin-bottom: 6px;
   letter-spacing: 0.04em;
