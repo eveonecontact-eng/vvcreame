@@ -556,7 +556,8 @@ html.page-business .business-section-sub {
 }
 
 .business-panel-image img[src*="eveone-logo"],
-.business-panel-image img[src*="circle-logo"] {
+.business-panel-image img[src*="circle-logo"],
+.business-panel-image img[src*="musubi-logo"] {
   mix-blend-mode: multiply;
 }
 
@@ -671,94 +672,51 @@ html.page-business .business-heading-desc + .business-heading:not(.company-profi
 }
 
 .officers-content {
-  max-width: 800px;
+  max-width: 720px;
   margin: 0 auto;
-}
-
-.officers-content .president-profile {
-  margin-top: 0;
-}
-
-.officers-content .president-profile + .president-profile {
-  margin-top: 48px;
-}
-
-.officers-content .president-profile:nth-child(even) {
-  flex-direction: row-reverse;
-}
-
-.president-profile {
   display: flex;
-  gap: 40px;
-  align-items: center;
-  margin-top: 40px;
+  flex-direction: column;
+  gap: 28px;
 }
 
-.president-profile-image {
-  flex: 0 0 220px;
-  width: 220px;
-  overflow: hidden;
+.officer-card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-light);
   border-radius: 12px;
-  background: transparent;
+  padding: 40px 44px;
 }
 
-.president-profile-image img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  height: auto;
-  object-fit: cover;
-  object-position: center top;
-  border-radius: 12px;
+.officer-role {
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--color-text-light);
+  margin-bottom: 10px;
 }
 
-.president-profile-image--kusanagi img {
-  object-position: 74% 62%;
-  transform: scale(1.35);
-  transform-origin: 74% 62%;
-}
-
-.president-profile-name {
-  font-size: 1.6rem;
+.officer-name {
+  font-size: 2.4rem;
   font-weight: 700;
-  font-family: inherit;
-  line-height: inherit;
+  letter-spacing: 0.08em;
   color: var(--color-text);
   margin-bottom: 6px;
-  letter-spacing: 0.04em;
+  line-height: 1.4;
 }
 
-.president-profile-name-en {
+.officer-name-en {
   font-family: var(--font-en);
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 500;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   color: var(--color-text-light);
-  margin-bottom: 12px;
+  margin-bottom: 24px;
 }
 
-.president-profile-image--logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: none;
-  min-height: 220px;
-}
-
-.president-profile-image--logo img {
-  width: 78%;
-  height: auto;
-  max-height: 180px;
-  object-fit: contain;
-  object-position: center;
-  border-radius: 0;
-  mix-blend-mode: multiply;
-}
-
-.president-profile-bio {
-  min-height: 0;
-  margin-bottom: 0;
+.officer-bio {
+  font-size: 1.5rem;
+  line-height: 2.0;
+  color: var(--color-text);
+  margin: 0;
 }
 
 .business-card-logo {
@@ -910,24 +868,12 @@ html.page-business .business-heading-desc + .business-heading:not(.company-profi
     max-width: 150px;
   }
 
-  .president-profile {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
+  .officer-card {
+    padding: 32px 28px;
   }
 
-  .officers-content .president-profile:nth-child(even) {
-    flex-direction: column;
-  }
-
-  .president-profile-image {
-    flex: none;
-    width: min(220px, 72%);
-  }
-
-  .president-profile-image img {
-    height: auto;
-    aspect-ratio: 3 / 4;
+  .officer-name {
+    font-size: 2.1rem;
   }
 
   .contact-methods { grid-template-columns: 1fr; gap: 32px; }
